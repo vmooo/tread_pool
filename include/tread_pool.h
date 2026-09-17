@@ -1,0 +1,6 @@
+#ifndef TREAD_POOL_TREAD_POOL_H
+#define TREAD_POOL_TREAD_POOL_H
+
+int test();
+
+#endif //TREAD_POOL_TREAD_POOL_H
