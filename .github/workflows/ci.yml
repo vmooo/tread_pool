@@ -23,3 +23,19 @@ jobs:
 
       - name: Run tests
         run: ctest --test-dir build --output-on-failure
+
+  build-and-test-freebsd:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build and test on FreeBSD
+        uses: vmactions/freebsd-vm@v1
+        with:
+          usesh: true
+          prepare: |
+            pkg install -y cmake ninja googletest
+          run: |
+            cmake -B build -S . -G Ninja -DCMAKE_BUILD_TYPE=Release
+            cmake --build build --config Release -j $(sysctl -n hw.ncpu)
+            ctest --test-dir build --output-on-failure
