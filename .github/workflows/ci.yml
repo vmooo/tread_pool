@@ -2,7 +2,21 @@ name: CI
 
 on:
   push:
+    paths:
+      - '**.c'
+      - '**.h'
+      - '**/CMakeLists.txt'
+      - '**.cmake'
+      - 'tests/**'
+      - '.github/workflows/**'
   pull_request:
+    paths:
+      - '**.c'
+      - '**.h'
+      - '**/CMakeLists.txt'
+      - '**.cmake'
+      - 'tests/**'
+      - '.github/workflows/**'
 
 jobs:
   build-and-test-linux:
