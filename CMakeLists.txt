@@ -23,7 +23,7 @@ file(GLOB_RECURSE TEST_FILES "tests/*.cpp")
 
 add_executable(run_tests ${TEST_FILES})
 
-target_compile_options(run_tests PRIVATE -Wall -Wextra -O2 -pthread)
+target_compile_options(run_tests PRIVATE -Wall -Wextra -Wunused-result -O2 -pthread)
 
 target_link_libraries(run_tests
         PRIVATE
